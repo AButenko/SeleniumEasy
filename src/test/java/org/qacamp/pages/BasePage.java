@@ -66,15 +66,17 @@ class BasePage {
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    protected void clickOnFirstVisibleElement(List<WebElement> elements) {
+    protected WebElement getFirstVisibleElement(List<WebElement> elements) {
+        WebElement e = null;
         int size = elements.size(),
             i = 0;
-        for (WebElement e; i < size; i++) {
+        for (; i < size; i++) {
             e = elements.get(i);
             if (e.isDisplayed() && e.isEnabled()) {
-                e.click();
+                break;
             }
         }
+        return e;
     }
 
     protected WebElement activeElement() {

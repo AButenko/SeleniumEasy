@@ -28,7 +28,7 @@ public class PGoogleTranslate extends BasePage {
         langPanels.get(1).findElement(By.id("gt-tl-gms")).click();
         List<WebElement> resultLangList;
         resultLangList = findAllElementsByXpath("//*[text()='"+resultBoxLanguage+"' and not(contains(@class, 'jfk-button'))]");
-        clickOnFirstVisibleElement(resultLangList);
+        getFirstVisibleElement(resultLangList).click();
     }
 
     //returns actual result:
